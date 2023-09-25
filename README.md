@@ -158,15 +158,8 @@ Explain how others can contribute to the project, if applicable.
 
 Specify the project's license.
 
-## Acknowledgments
-
-Acknowledge any individuals, projects, or resources that you used or were inspired by during the development of your project.
 ## License
 
-All Rights Reserved for Internal Use
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-This repository is the work of [Author's Name] and is protected by copyright law.
-Unauthorized use or reproduction of this repository or its contents is prohibited.
-
-For inquiries, please contact [Author's Email Address].
 
