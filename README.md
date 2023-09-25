@@ -33,10 +33,7 @@ This guide provides comprehensive instructions for setting up the Arches ontolog
 - [Setting Up PostgreSQL with Arches](#setting-up-postgresql-with-arches)
   - [Step 1: SSH Tunnel to PostgreSQL](#step-1-ssh-tunnel-to-postgresql)
   - [Step 2: PostgreSQL Commands](#step-2-postgresql-commands)
-- [Usage](#usage)
-- [Contributing](#contributing)
 - [License](#license)
-- [Acknowledgments](#acknowledgments)
 
 
 ## Introduction
