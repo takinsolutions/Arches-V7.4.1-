@@ -1,6 +1,6 @@
-<h1># Project Name <h1></h1>
+<h1># Arches V7.4.1<h1></h1>
 
-A brief project description goes here.
+This file's purpose sole purpose is to help the end user to installa the latest version of the ontological database called Arches
 
 ## Table of Contents
 
