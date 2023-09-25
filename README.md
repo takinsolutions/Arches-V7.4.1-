@@ -1,147 +1,116 @@
-Setting Up Arches 7.4.1 on AWS EC2 Instance
+# Project Name
 
-Prerequisites
+A brief project description goes here.
 
-An AWS EC2 instance running Ubuntu.
-An SSH key pair (.pem file) associated with the EC2 instance.
-Basic knowledge of the AWS console.
-Step 1: Download the .pem File
+## Table of Contents
 
-1.1. After creating an EC2 instance on AWS, download the associated .pem key file.
+- [Introduction](#introduction)
+- [Prerequisites](#prerequisites)
+- [Getting Started](#getting-started)
+  - [Step 1: Download the .pem File](#step-1-download-the-pem-file)
+  - [Step 2: Establish a Remote Connection](#step-2-establish-a-remote-connection)
+  - [Step 3: Setup Arches Environment](#step-3-setup-arches-environment)
+  - [Step 4: Create a Virtual Environment](#step-4-create-a-virtual-environment)
+  - [Step 5: Verify Python Version](#step-5-verify-python-version)
+  - [Step 6: Update Pip](#step-6-update-pip)
+  - [Step 7: Install Arches](#step-7-install-arches)
+  - [Step 8: Create a New Arches Project](#step-8-create-a-new-arches-project)
+  - [Step 9: Setup the Database](#step-9-setup-the-database)
+  - [Step 10: Edit Allowed Hosts](#step-10-edit-allowed-hosts)
+  - [Step 11: Run the Development Server](#step-11-run-the-development-server)
+  - [Step 12: Access the Arches Application](#step-12-access-the-arches-application)
+- [Setting Up PostgreSQL with Arches](#setting-up-postgresql-with-arches)
+  - [Step 1: SSH Tunnel to PostgreSQL](#step-1-ssh-tunnel-to-postgresql)
+  - [Step 2: PostgreSQL Commands](#step-2-postgresql-commands)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
 
-1.2. Save the .pem file to a local directory of your choice.
+## Introduction
 
-1.3. Open a terminal and navigate to the directory containing the .pem file.
+Provide a brief introduction to your project, explaining its purpose and what readers can expect to learn from the README.
 
-1.4. Change the file permissions to ensure it's secure:
+## Prerequisites
 
-bash
-Copy code
-chmod 400 your-key.pem
-Verify the permissions using:
+List any prerequisites or dependencies that users need to install or have in place before they can follow the setup instructions.
 
-bash
-Copy code
-ls -l your-key.pem
-Step 2: Establish a Remote Connection
+## Getting Started
 
-2.1. Replace your-key.pem with the actual name of your AWS key file.
+Provide step-by-step instructions for setting up the project. Use sub-sections for each step to make it clear and organized.
 
-2.2. Replace your-instance-ip with the public IP address of your AWS instance.
+### Step 1: Download the .pem File
 
-bash
-Copy code
-ssh -i "your-key.pem" ubuntu@your-instance-ip
-Step 3: Setup Arches Environment
+Instructions for downloading the .pem file and setting proper permissions.
 
-3.1. Download the Arches installation script:
+### Step 2: Establish a Remote Connection
 
-bash
-Copy code
-wget https://raw.githubusercontent.com/archesproject/arches/stable/7.4.0/arches/install/ubuntu_setup.sh
-3.2. Execute the script:
+Instructions for connecting to the AWS EC2 instance using SSH.
 
-bash
-Copy code
-source ./ubuntu_setup.sh
-Step 4: Create a Virtual Environment
+### Step 3: Setup Arches Environment
 
-bash
-Copy code
-python3 -m venv ENV
-source ENV/bin/activate
-Step 5: Verify Python Version
+Instructions for downloading the Arches installation script and executing it.
 
-bash
-Copy code
-python
-Step 6: Update Pip
+### Step 4: Create a Virtual Environment
 
-bash
-Copy code
-python -m pip install --upgrade pip
-Step 7: Install Arches
+Instructions for creating a virtual environment for Arches.
 
-bash
-Copy code
-pip install arches
-Step 8: Create a New Arches Project
+### Step 5: Verify Python Version
 
-bash
-Copy code
-arches-project create my_project
-cd my_project
-Step 9: Setup the Database
+Instructions for checking the Python version in the environment.
 
-bash
-Copy code
-python manage.py setup_db
-Step 10: Edit Allowed Hosts
+### Step 6: Update Pip
 
-10.1. Open the request.py file:
+Instructions for updating the pip package.
 
-bash
-Copy code
-nano ~/ENV/lib/python3.10/site-packages/django/http/request.py
-10.2. Locate the line that says allowed_hosts and modify it:
+### Step 7: Install Arches
 
-python
-Copy code
-allowed_hosts = ['.localhost', '127.0.0.1', '[::1]', '*']
-10.3. Save and exit the file.
+Instructions for installing the Arches package.
 
-Step 11: Run the Development Server
+### Step 8: Create a New Arches Project
 
-bash
-Copy code
-cd ~
-cd my_project
-python3 manage.py runserver your-instance-ip:8000
-Step 12: Access the Arches Application
+Instructions for creating a new Arches project.
 
-Open your web browser and navigate to:
+### Step 9: Setup the Database
 
-plaintext
-Copy code
-http://your-instance-ip:8000/
-Setting Up PostgreSQL with Arches 7.4.1
+Instructions for setting up the database for the Arches project.
 
-Step 1: SSH Tunnel to PostgreSQL
+### Step 10: Edit Allowed Hosts
 
-1.1. Open a new terminal separate from your Arches environment.
+Instructions for editing the Allowed Hosts in the Django settings.
 
-1.2. Create an SSH tunnel to the PostgreSQL database:
+### Step 11: Run the Development Server
 
-bash
-Copy code
-ssh -L 5432:localhost:5432 -N -i "your-key.pem" ubuntu@your-instance-ip
-Step 2: PostgreSQL Commands
+Instructions for running the development server.
 
-2.1. Switch to the PostgreSQL user:
+### Step 12: Access the Arches Application
 
-bash
-Copy code
-sudo -i -u postgres
-2.2. Start the PostgreSQL command-line interface:
+Instructions for accessing the Arches application in a web browser.
 
-bash
-Copy code
-psql
-2.3. Create a new PostgreSQL user:
+## Setting Up PostgreSQL with Arches
 
-sql
-Copy code
-CREATE USER newuser;
-2.4. Set a password for the new user:
+Provide instructions for setting up PostgreSQL for use with Arches.
 
-sql
-Copy code
-ALTER USER newuser WITH PASSWORD 'your-password';
-2.5. Grant necessary privileges to the user:
+### Step 1: SSH Tunnel to PostgreSQL
 
-sql
-Copy code
-ALTER USER newuser WITH SUPERUSER CREATEDB CREATEROLE REPLICATION BYPASSRLS;
-This README provides clear, step-by-step instructions for setting up Arches 7.4.1 and PostgreSQL on an AWS EC2 instance. Make sure to replace placeholders like your-key.pem and your-instance-ip with your actual values.
+Instructions for creating an SSH tunnel to PostgreSQL.
 
-By following these instructions, you can efficiently set up your development environment for Arches 7.4.1 and PostgreSQL on AWS.
+### Step 2: PostgreSQL Commands
+
+Instructions for configuring PostgreSQL and creating a new user.
+
+## Usage
+
+Provide information on how to use the project or any relevant usage examples.
+
+## Contributing
+
+Explain how others can contribute to the project, if applicable.
+
+## License
+
+Specify the project's license.
+
+## Acknowledgments
+
+Acknowledge any individuals, projects, or resources that you used or were inspired by during the development of your project.
