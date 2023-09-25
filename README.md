@@ -67,6 +67,10 @@ The guide covers the following key steps:
    
 </p> 
 
+## Prerequisites
+
+List any prerequisites or dependencies that users need to install or have in place before they can follow the setup instructions.
+
 ## Before we start
 
 To start the installation process, follow the instructions in the sections provided below. Each step is accompanied by detailed explanations and commands to ensure a successful setup.
@@ -76,11 +80,6 @@ To start the installation process, follow the instructions in the sections provi
 Now, let's dive into the installation process and get Arches up and running on your AWS EC2 instance!
 
 > **Next:** Proceed to [Step 1: Preparing Your Environment](#step-1-preparing-your-environment).
-
-
-## Prerequisites
-
-List any prerequisites or dependencies that users need to install or have in place before they can follow the setup instructions.
 
 ## Getting Started
 
