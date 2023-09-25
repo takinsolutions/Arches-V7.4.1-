@@ -1,14 +1,17 @@
-# POSTGRES ARCHES ATEST.PEM - ARCHES 7.4.1
-
-## 1.Setting Up PostgreSQL with Arches
+## Setting Up PostgreSQL with Arches
 
 To configure PostgreSQL for use with Arches, follow these steps:
 
-* Open a new terminal window separate from the one running the Arches environment.
-* Establish an SSH tunnel to your PostgreSQL server using the following command:
+1. Open a new terminal window separate from the one running the Arches environment.
 
-```
+2. Establish an SSH tunnel to your PostgreSQL server using the following command:
+
+```bash
 ssh -L 5432:localhost:5432 -N -i "atest.pem" ubuntu@ec2-15-237-62-130.eu-west-3.compute.amazonaws.com
+
+
+```bash
+chmod 400 atest.pem
 ```
 
 Access the PostgreSQL command-line interface by entering:
