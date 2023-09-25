@@ -1,7 +1,8 @@
 <h1>Arches V7.4.1</h1>
 
 <p align="justify">
-Welcome to the Arches V7.4.1 installation guide! This guide provides comprehensive instructions for setting up the Arches ontological database on an AWS EC2 instance. Arches is a powerful web-based database platform designed for creating and managing archives and information. This file's sole purpose is to help end users install the latest version of the ontological database called Arches. For a more detailed explanation of the installation process, please review the document below.
+Welcome to the Arches V7.4.1 installation guide! This guide provides comprehensive instructions for setting up the Arches ontological database on an AWS EC2 instance. Arches is a powerful web-based database platform designed for creating and managing archives and information. This file's sole purpose is to help end users install the latest version of the ontological database called Arches. 
+For a more detailed explanation of the installation process, please review the document below.
 </p>
 
 
