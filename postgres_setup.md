@@ -10,20 +10,20 @@ To configure PostgreSQL for use with Arches, follow these steps:
 ssh -L 5432:localhost:5432 -N -i "atest.pem" ubuntu@ec2-15-237-62-130.eu-west-3.compute.amazonaws.com
 
 ```
-Access the PostgreSQL command-line interface by entering:
+3. Access the PostgreSQL command-line interface by entering:
 ```
 sudo -i -u postgres
 psql
 ```
-Create a new PostgreSQL user by executing the following SQL command:
+4. Create a new PostgreSQL user by executing the following SQL command:
 ```
 CREATE USER newuser;
 ```
-Set a password for the newly created user (replace 'London' with your desired password):
+5. Set a password for the newly created user (replace 'London' with your desired password):
 ```
 ALTER USER newuser WITH PASSWORD 'London2023';
 ```
-Grant the necessary privileges to the user for PostgreSQL (superuser, createdb, createrole, replication, bypassrls) with this SQL command:
+6. Grant the necessary privileges to the user for PostgreSQL (superuser, createdb, createrole, replication, bypassrls) with this SQL command:
 
 ```
 ALTER USER newuser WITH SUPERUSER CREATEDB CREATEROLE REPLICATION BYPASSRLS;
