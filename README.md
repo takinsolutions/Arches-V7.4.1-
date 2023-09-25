@@ -16,7 +16,7 @@ This guide provides comprehensive instructions for setting up the Arches ontolog
 
 - [Introduction](#introduction)
 - [Prerequisites](#prerequisites)
-- [Getting Started](#getting-started)
+- [Before we start](#before-we-start) 
   - [Step 1: Download the .pem File](#step-1-download-the-pem-file)
   - [Step 2: Establish a Remote Connection](#step-2-establish-a-remote-connection)
   - [Step 3: Setup Arches Environment](#step-3-setup-arches-environment)
