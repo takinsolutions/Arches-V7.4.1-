@@ -1,6 +1,7 @@
 <h1> Arches V7.4.1<h1></h1>
 
-<p> This file's purpose sole purpose is to help the end user to install the latest version of the ontological database called Arches. </p> 
+<p> Arches is web - base base database platform, for creating and keeping archives and infromation </p>
+<p>This file's purpose sole purpose is to help the end user to install the latest version of the ontological database called Arches. </p> 
 <p> For further, more detailed explanation of the installation process, review the document below. </p> 
 
 ## Table of Contents
