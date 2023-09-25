@@ -65,7 +65,7 @@ The guide covers the following key steps:
    
 </p> 
 
-## PrerequisitesPrerequisites
+## Prerequisites
 
 Before you begin the installation of Arches V7.4.1 on your AWS EC2 instance, ensure that you have the following prerequisites in place:
 
