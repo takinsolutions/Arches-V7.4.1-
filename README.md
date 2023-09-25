@@ -68,9 +68,38 @@ The guide covers the following key steps:
    
 </p> 
 
-## Prerequisites
+## PrerequisitesPrerequisites
 
-List any prerequisites or dependencies that users need to install or have in place before they can follow the setup instructions.
+Before you begin the installation of Arches V7.4.1 on your AWS EC2 instance, ensure that you have the following prerequisites in place:
+
+1. AWS Account
+* You should have an active AWS account with appropriate permissions to create and manage EC2 instances.
+
+2. AWS EC2 Instance
+* Create an AWS EC2 instance with the following considerations:
+* Choose an EC2 instance type that aligns with your expected workload and performance requirements.
+* Configure security groups and network settings to allow SSH access to your instance.
+* Ensure that your instance has sufficient storage space to accommodate the Arches installation and any data you plan to manage.
+
+4. SSH Client
+* Have an SSH client installed on your local machine. 
+* Most Unix-based systems (Linux, macOS) have SSH pre-installed. For Windows, you can use tools like PuTTY or Windows Subsystem for Linux (WSL).
+
+5. .pem File
+* After creating your EC2 instance, you will receive a .pem file that serves as the private key for accessing the instance. Make sure you download and save this file securely.
+
+6. Python 3
+* Python 3 should be installed on your local machine. You can check your Python version by running python3 --version in your terminal.
+7. Git (Optional)
+* While not strictly required, having Git installed on your local machine can be useful for managing your Arches project and obtaining the installation script from the Arches repository.
+
+8. Basic Knowledge of AWS
+* A fundamental understanding of AWS services, especially EC2, will be beneficial for configuring your instance and understanding the AWS environment.
+
+9. AWS CLI (Optional)
+* The AWS Command Line Interface (CLI) can be handy for configuring AWS settings, but it's optional for this installation.
+* Please ensure that you have these prerequisites in place before proceeding with the Arches installation. Once you've verified these prerequisites, you can start following the installation steps 
+ outlined in the guide.
 
 ## Before we start
 
@@ -82,81 +111,192 @@ Now, let's dive into the installation process and get Arches up and running on y
 
 > **Next:** Proceed to [Step 1: Preparing Your Environment](#step-1-preparing-your-environment).
 
-## Getting Started
+# Getting Started
 
-Provide step-by-step instructions for setting up the project. Use sub-sections for each step to make it clear and organized.
+## Downloading the AWS EC2 Instance
 
-### Step 1: Download the .pem File
+Before you can begin using Arches on your local machine, you need to set up an AWS EC2 instance and acquire the necessary files.
 
-Instructions for downloading the .pem file and setting proper permissions.
+### 1.1. Create an AWS EC2 Instance
 
-### Step 2: Establish a Remote Connection
+Start by creating an AWS EC2 instance tailored to your requirements. Ensure you choose the appropriate instance type and configurations for your specific use case.
 
-Instructions for connecting to the AWS EC2 instance using SSH.
+### 1.2. Download the .pem File
 
-### Step 3: Setup Arches Environment
+Once your EC2 instance is created, you will receive a .pem file. This file is crucial for securely connecting to your EC2 instance.
 
-Instructions for downloading the Arches installation script and executing it.
+### 1.3. Save the .pem File
 
-### Step 4: Create a Virtual Environment
+After downloading, save the .pem file to a directory on your local machine, and make note of the directory's path, as it will be needed shortly.
 
-Instructions for creating a virtual environment for Arches.
+### 1.4. Set File Permissions
 
-### Step 5: Verify Python Version
+Open your terminal and navigate to the directory where the .pem file is located using the `cd` command. For example, if your username is "Alex," you can navigate using `cd /users/Alex`. To enhance security, limit access to the .pem file by executing the following command:
 
-Instructions for checking the Python version in the environment.
+```bash
+chmod 400 atest.pem
+```
+This command adjusts the file's permissions so that only the file's owner has read permissions. To confirm this change, run:
+bash
+Copy code
+ls -l atest.pem
+You should observe the updated file permissions.
+2. Establishing a Remote Connection
+With the .pem file and correct permissions in place, you can now establish a secure remote connection to your AWS EC2 instance.
 
-### Step 6: Update Pip
+2.1. SSH Connection
 
-Instructions for updating the pip package.
+Utilize the SSH (Secure Shell) command to connect to your instance. Replace "atest.pem" with the actual name of your .pem file, and "ubuntu@ec2-15-237-62-130.eu-west-3.compute.amazonaws.com" with the actual IP address or domain name of your AWS instance. The command should resemble:
+css
+Copy code
+ssh -i "atest.pem" ubuntu@ec2-15-237-62-130.eu-west-3.compute.amazonaws.com
+3. Setting Up the Arches Environment
+Now that you have established remote access to your AWS instance, it's time to configure the environment for Arches.
 
-### Step 7: Install Arches
+3.1. Downloading the Setup Script
 
-Instructions for installing the Arches package.
+Execute the following command to download the Arches setup script from the official repository:
+ruby
+Copy code
+wget https://raw.githubusercontent.com/archesproject/arches/stable/7.4.0/arches/install/ubuntu_setup.sh
+3.2. Executing the Setup Script
 
-### Step 8: Create a New Arches Project
+After downloading the script, create a file called "ubuntu_setup.sh" by running:
+bash
+Copy code
+source ./ubuntu_setup.sh
+This script automates the installation of all necessary dependencies and applications for Arches.
+4. Creating a Virtual Environment
+To manage your Arches project efficiently, it's recommended to create a virtual environment.
 
-Instructions for creating a new Arches project.
+4.1. Create a Virtual Environment
 
-### Step 9: Setup the Database
+Use the following command to create a new virtual environment named "ENV":
+bash
+Copy code
+python3 -m venv ENV
+4.2. Activate the Virtual Environment
 
-Instructions for setting up the database for the Arches project.
+Activate the virtual environment using the command:
+bash
+Copy code
+source ENV/bin/activate
+5. Verifying Python Version and Updating Pip
+5.1. Check Python Version
 
-### Step 10: Edit Allowed Hosts
+Confirm the Python version installed on your AWS instance by running:
+bash
+Copy code
+python
+This command will display the Python version.
+5.2. Updating Pip
 
-Instructions for editing the Allowed Hosts in the Django settings.
+Ensure that Pip, the Python package manager, is up to date:
+css
+Copy code
+python -m pip install --upgrade pip
+6. Installing Arches
+6.1. Install Arches
 
-### Step 11: Run the Development Server
+Use the following command to install the latest stable release of Arches:
+bash
+Copy code
+pip install arches
+7. Creating an Arches Project
+7.1. Create an Arches Project
 
-Instructions for running the development server.
+Kickstart a new Arches project by running:
+lua
+Copy code
+arches-project create my_project
+8. Setting Up the Database
+To store and manage data within Arches, it's essential to set up the database.
 
-### Step 12: Access the Arches Application
+8.1. Change Directory to Your Project
 
-Instructions for accessing the Arches application in a web browser.
+Navigate to your project directory using:
+bash
+Copy code
+cd my_project
+8.2. Database Setup
 
-## Setting Up PostgreSQL with Arches
+Create the database itself by executing:
+bash
+Copy code
+python manage.py setup_db
+9. Configuring Allowed Hosts
+9.1. Edit Allowed Hosts
 
-Provide instructions for setting up PostgreSQL for use with Arches.
+Navigate to the following directory:
+bash
+Copy code
+cd ENV/lib/python3.10/site-packages/django/http
+In this directory, open the "request.py" file using a text editor.
+Locate the line that defines "Allowed Hosts" and edit it to include all the ports. Change this line:
+python
+Copy code
+allowed_hosts = settings.ALLOWED_HOSTS
+to:
+python
+Copy code
+allowed_hosts = settings.ALLOWED_HOSTS + ['*']
+This addition allows traffic to be transported through all available ports.
+10. Running the Development Server
 
-### Step 1: SSH Tunnel to PostgreSQL
+10.1. Exit the Text Editor
 
-Instructions for creating an SSH tunnel to PostgreSQL.
+Save your changes and exit the text editor.
+10.2. Return to the Project Directory
 
-### Step 2: PostgreSQL Commands
+Navigate back to your project directory:
+bash
+Copy code
+cd ~
+cd my_project
+10.3. Start the Development Server
 
-Instructions for configuring PostgreSQL and creating a new user.
+Run the following command to initiate the Arches development server:
+bash
+Copy code
+python3 manage.py runserver ec2-15-237-62-130.eu-west-3.compute.amazonaws.com:8000
+11. Accessing the Arches Application
+11.1. Open a Web Browser
 
-## Usage
+Launch your web browser and navigate to:
+arduino
+Copy code
+http://ec2-15-237-62-130.eu-west-3.compute.amazonaws.com:8000/
+This URL provides access to your Arches web application.
+This concludes the setup process for Arches on your AWS EC2 instance. You are now ready to utilize and develop with Arches.
 
-Provide information on how to use the project or any relevant usage examples.
+POSTGRES ARCHES ATEST.PEM - ARCHES 7.4.1
 
-## Contributing
+Setting Up PostgreSQL with Arches
+To configure PostgreSQL for use with Arches, follow these steps:
 
-Explain how others can contribute to the project, if applicable.
-
-## License
-
-Specify the project's license.
+Open a new terminal window separate from the one running the Arches environment.
+Establish an SSH tunnel to your PostgreSQL server using the following command:
+ruby
+Copy code
+ssh -L 5432:localhost:5432 -N -i "atest.pem" ubuntu@ec2-15-237-62-130.eu-west-3.compute.amazonaws.com
+Access the PostgreSQL command-line interface by entering:
+css
+Copy code
+sudo -i -u postgres
+psql
+Create a new PostgreSQL user by executing the following SQL command:
+sql
+Copy code
+CREATE USER newuser;
+Set a password for the newly created user (replace 'London' with your desired password):
+sql
+Copy code
+ALTER USER newuser WITH PASSWORD 'London2023';
+Grant the necessary privileges to the user for PostgreSQL (superuser, createdb, createrole, replication, bypassrls) with this SQL command:
+sql
+Copy code
+ALTER USER newuser WITH SUPERUSER CREATEDB CREATEROLE REPLICATION BYPASSRLS;
+Ensure to replace any placeholders like file names and IP addresses with the actual values pertinent to your setup.
 
 ## License
 
