@@ -1,6 +1,15 @@
-UBUNTU_SETUP.SH V7
+#UBUNTU_SETUP.SH V7
+
+## Overview of the file
+
+This is a file for the proper installation of the latest Arches Version 7.4.
+The snippet below containt the script itselft that will be executed once you run the
+
+```
 
 
+
+```
 #!/usr/bin/env bash
 
 # For Ubuntu 18.04 (bionic)
@@ -125,3 +134,4 @@ function main {
 }
 
 main
+```
