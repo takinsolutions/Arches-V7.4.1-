@@ -195,7 +195,7 @@ This command will display the Python version.
 
 ### 5.2. Updating Pip
 
-Ensure that Pip, the Python package manager, is up to date:
+Ensure that Pip and the Python package manager:
 ```
 python -m pip install --upgrade pip
 ```
