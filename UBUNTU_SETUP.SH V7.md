@@ -27,7 +27,7 @@ For a further reivew of the code you can take a look a the following code below.
 If for some reason the <i> wget </i> does not work, don't worry, you can still run the ubuntu_sh.
 
 * Step 1:
-  - Navigate to your working directory, for example" 
+Navigate to your working directory, for example" 
 
 ```
 cd ~
