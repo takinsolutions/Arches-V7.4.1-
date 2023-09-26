@@ -2,11 +2,46 @@
 
 ## Overview of the file
 
+## Option 1 
+
 This is a file for the proper installation of the latest Arches Version 7.4.
 The snippet below containt the script itselft that will be executed once you run the
 
 ```
+wget https://raw.githubusercontent.com/archesproject/arches/stable/7.4.0/arches/install/ubuntu_setup.sh
+```
 
+A new file will be created in the current directory named  <i> " ubuntu_setup.sh"</i>
+Apperantly you will have to run the following command: 
+
+``` 
+source ./ubuntu_setup.sh
+```
+The command will start running the script below, and the only thing you have to do is agree to everything you have been asked 
+In other words, click <i>yes</i>, or type "<i>y</i>" or press enter. 
+
+For a further reivew of the code you can take a look a the following code below.
+
+## Option 2 
+
+If for some reason the <i> wget </i> does not work, don't worry, you can still run the ubuntu_sh.
+
+* Step 1:
+  - Navigate to your working directory, for example" 
+
+```
+cd ~
+cd /home/ubuntu
+```
+* Step 2: 
+
+Once you are in the directory, use a text editor, like nano to create a file called <i> ubuntu_setup.sh </i>
+
+```
+nano ubuntu_setup.sh
+```
+
+Once you have opened the nano editor, you can copy the following code:
 
 
 ```
@@ -134,4 +169,12 @@ function main {
 }
 
 main
+```
+
+* Step 3:
+
+The moment the <i> ubuntu_setup.sh </i> is created, you execute the following comand to run the script and download all the requirements: 
+
+```
+source ./ubuntu_setup.sh
 ```
