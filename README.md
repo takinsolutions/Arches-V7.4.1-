@@ -132,6 +132,7 @@ Open your terminal and navigate to the directory where the .pem file is located 
 
 ```bash
 chmod 400 atest.pem
+chmod 600 atest.pem
 ```
 This command adjusts the file's permissions so that only the file's owner has read permissions. To confirm this change, run:
 
@@ -153,20 +154,14 @@ ssh -i "atest.pem" ubuntu@ec2-15-237-62-130.eu-west-3.compute.amazonaws.com
 ## 3. Setting Up the Arches Environment
 Now that you have established remote access to your AWS instance, it's time to configure the environment for Arches.
 
-### 3.1. Downloading the Setup Script
+### 3.1. Downloading and Execute the Setup Script
 
-Execute the following command to download the Arches setup script from the official repository:
+Run the following commands to download the Arches setup script from the official repository
+And execute the pem file:
 ```
 wget https://raw.githubusercontent.com/archesproject/arches/stable/7.4.0/arches/install/ubuntu_setup.sh
-```
-
-### 3.2. Executing the Setup Script
-
-After downloading the script, create a file called "ubuntu_setup.sh" by running:
-```
 source ./ubuntu_setup.sh
 ```
-This script automates the installation of all necessary dependencies and applications for Arches.
 
 ## 4. Creating a Virtual Environment
 To manage your Arches project efficiently, it's recommended to create a virtual environment.
