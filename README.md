@@ -256,7 +256,21 @@ Return to the Project Directory
 cd ~
 cd my_project
 ```
-## 10 Start the Development Server
+
+## 10 Build a Frontend Asset Bundle
+In your current terminal, run the Django development server:
+
+```
+python manage.py runserver
+```
+Then, in a second terminal, navigate to the root directory of the project ( you should be on the same level as package.json) and build a frontend asset bundle:
+
+```
+cd my_project/my_project
+yarn build_development
+```
+
+## 11 Start the Development Server
 
 Run the following command to initiate the Arches development server:
 ```
@@ -265,9 +279,9 @@ python3 manage.py runserver ec2-15-237-62-130.eu-west-3.compute.amazonaws.com:80
 !!! IMPORTANT !!! <br>
 Don't forget to replace the name of the server given above with the actual name and IP Address of your AWS Instance
 
-## 11. Accessing the Arches Application
+## 12. Accessing the Arches Application
 
-### 11.1. Open a Web Browser
+### 12.1. Open a Web Browser
 
 Launch your web browser and navigate to:
 
